@@ -86,7 +86,7 @@ const JwtLogin = () => {
                    <Typography variant="h5"style={{
                      marginBottom: '19px'
                    }}>
-                     <img src="/assets/images/loading-highscope.png" width="100%" alt="" />
+                     <img src="assets/images/loading-highscope.png" width="100%" alt="" />
                      Login
                    </Typography>
                     <TextField
