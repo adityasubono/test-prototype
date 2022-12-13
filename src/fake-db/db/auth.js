@@ -11,7 +11,7 @@ const userList = [
     name: 'Jason Alexander',
     username: 'jason_alexander',
     email: 'jason@highscope.co.id',
-    avatar: '/assets/images/face-6.jpg',
+    avatar: 'assets/images/face-6.jpg',
     age: 25,
   },
   {
@@ -20,7 +20,7 @@ const userList = [
     name: 'Aditya Nugroho Subono',
     username: 'adityasubono',
     email: 'aditya@highscope.co.id',
-    avatar: '/assets/images/face-1.jpg',
+    avatar: 'assets/images/face-1.jpg',
     age: 33,
   },
 ];
