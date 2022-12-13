@@ -30,7 +30,7 @@ const NotFound = () => {
   return (
     <NotFoundRoot>
       <JustifyBox>
-        <IMG src="../../../../public/assets/images/illustrations/404.svg" alt="" />
+        <IMG src="assets/images/illustrations/404.svg" alt="" />
 
         <Button
           color="primary"
@@ -38,7 +38,7 @@ const NotFound = () => {
           sx={{ textTransform: 'capitalize' }}
           onClick={() => navigate(-1)}
         >
-          Go Back
+          Go Back Not Found
         </Button>
       </JustifyBox>
     </NotFoundRoot>
