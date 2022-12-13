@@ -6,6 +6,8 @@ import useAuth from 'app/hooks/useAuth';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import imageLogin from '../../assets/images/illustrations/posting_photo.svg'
+import logoHighscope from '../../assets/images/loading-highscope.png'
 import * as Yup from 'yup';
 
 const FlexBox = styled(Box)(() => ({ display: 'flex', alignItems: 'center' }));
@@ -70,7 +72,7 @@ const JwtLogin = () => {
         <Grid container>
           <Grid item sm={6} xs={12}>
             <JustifyBox p={4} height="100%" sx={{ minWidth: 320 }}>
-              <img src="assets/images/illustrations/posting_photo.svg" width="100%" alt="" />
+              <img src={imageLogin} width="100%" alt="" />
             </JustifyBox>
           </Grid>
 
@@ -86,7 +88,7 @@ const JwtLogin = () => {
                    <Typography variant="h5"style={{
                      marginBottom: '19px'
                    }}>
-                     <img src="assets/images/loading-highscope.png" width="100%" alt="" />
+                     <img src={logoHighscope} width="100%" alt="" />
                      Login
                    </Typography>
                     <TextField
