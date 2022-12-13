@@ -5,7 +5,7 @@ import { authRoles } from '../../auth/authRoles';
 const Home = Loadable(lazy(() => import('./Home')));
 
 const homeRoutes = [
-    { path: '/home/default', element: <Home />, auth: authRoles.admin },
+    { path: '/test-prototype', element: <Home />, auth: authRoles.admin },
 ];
 
 export default homeRoutes;
