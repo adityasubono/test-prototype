@@ -8,8 +8,8 @@
     "static/js/5.9f92d73f.chunk.js": "/test-prototype/static/js/5.9f92d73f.chunk.js",
     "static/js/6.4e572514.chunk.js": "/test-prototype/static/js/6.4e572514.chunk.js",
     "static/js/7.20befdb6.chunk.js": "/test-prototype/static/js/7.20befdb6.chunk.js",
-    "main.js": "/test-prototype/static/js/main.a31c3f74.chunk.js",
-    "runtime-main.js": "/test-prototype/static/js/runtime-main.1ce05ddb.js",
+    "main.js": "/test-prototype/static/js/main.bdafaa9f.chunk.js",
+    "runtime-main.js": "/test-prototype/static/js/runtime-main.6f00dd9e.js",
     "static/css/10.af774a2d.chunk.css": "/test-prototype/static/css/10.af774a2d.chunk.css",
     "static/js/10.d8601599.chunk.js": "/test-prototype/static/js/10.d8601599.chunk.js",
     "static/js/11.d2b65d80.chunk.js": "/test-prototype/static/js/11.d2b65d80.chunk.js",
@@ -66,7 +66,7 @@
     "static/js/62.e40ae339.chunk.js": "/test-prototype/static/js/62.e40ae339.chunk.js",
     "static/js/63.8d289ab1.chunk.js": "/test-prototype/static/js/63.8d289ab1.chunk.js",
     "static/js/64.b12c908a.chunk.js": "/test-prototype/static/js/64.b12c908a.chunk.js",
-    "static/js/65.ac61078d.chunk.js": "/test-prototype/static/js/65.ac61078d.chunk.js",
+    "static/js/65.724589d8.chunk.js": "/test-prototype/static/js/65.724589d8.chunk.js",
     "static/js/66.6920a01f.chunk.js": "/test-prototype/static/js/66.6920a01f.chunk.js",
     "static/js/67.365cb448.chunk.js": "/test-prototype/static/js/67.365cb448.chunk.js",
     "static/js/68.00ba6fb4.chunk.js": "/test-prototype/static/js/68.00ba6fb4.chunk.js",
@@ -77,9 +77,9 @@
     "static/media/highscope.logo.25a7d03c.svg": "/test-prototype/static/media/highscope.logo.25a7d03c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1ce05ddb.js",
+    "static/js/runtime-main.6f00dd9e.js",
     "static/css/10.af774a2d.chunk.css",
     "static/js/10.d8601599.chunk.js",
-    "static/js/main.a31c3f74.chunk.js"
+    "static/js/main.bdafaa9f.chunk.js"
   ]
 }
