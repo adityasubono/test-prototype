@@ -43,7 +43,7 @@ const routes = [
         ],
     },
     ...sessionRoutes,
-    {path: '/', element: <Navigate to="home/default"/>},
+    {path: "/", element: <Navigate to="home/default"/>},
     {path: '*', element: <NotFound/>},
 ];
 

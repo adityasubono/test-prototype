@@ -1,5 +1,5 @@
 export const navigations = [
-  { name: 'Home', path: '/home/default', icon: 'dashboard' },
+  { name: 'Home', path: '/', icon: 'dashboard' },
   {
     name: 'Admin System',
     icon: 'security',
