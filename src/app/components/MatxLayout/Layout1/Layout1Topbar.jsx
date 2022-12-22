@@ -121,9 +121,9 @@ const Layout1Topbar = () => {
         <Box display="flex" alignItems="center">
           {/*<MatxSearchBox />*/}
 
-          {/*<NotificationProvider>*/}
-          {/*  <NotificationBar />*/}
-          {/*</NotificationProvider>*/}
+          <NotificationProvider>
+            <NotificationBar />
+          </NotificationProvider>
 
           {/*<ShoppingCart />*/}
 
@@ -132,7 +132,7 @@ const Layout1Topbar = () => {
               <UserMenu>
                 <Hidden xsDown>
                   <Span>
-                    Hi <strong>{user.name}</strong>
+                    Hello, <strong>{user.name}</strong>
                   </Span>
                 </Hidden>
                 <Avatar src={user.avatar} sx={{ cursor: 'pointer' }} />
@@ -151,11 +151,6 @@ const Layout1Topbar = () => {
                 <Icon> person </Icon>
                 <Span> Profile </Span>
               </Link>
-            </StyledItem>
-
-            <StyledItem>
-              <Icon> settings </Icon>
-              <Span> Settings </Span>
             </StyledItem>
 
             <StyledItem onClick={logout}>

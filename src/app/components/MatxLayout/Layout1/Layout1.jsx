@@ -11,6 +11,8 @@ import SidenavTheme from '../../MatxTheme/SidenavTheme/SidenavTheme';
 import SecondarySidebar from '../../SecondarySidebar/SecondarySidebar';
 import Layout1Sidenav from './Layout1Sidenav';
 import Layout1Topbar from './Layout1Topbar';
+import Layout1NavbarTopbar from "./Layout1NavbarTopbar";
+import {navigations} from "../../../navigations";
 
 const Layout1Root = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -97,6 +99,7 @@ const Layout1 = () => {
         {layout1Settings.topbar.show && layout1Settings.topbar.fixed && (
           <ThemeProvider theme={topbarTheme}>
             <Layout1Topbar fixed={true} className="elevation-z8" />
+            <Layout1NavbarTopbar fixed={true} className="elevation-z8" />
           </ThemeProvider>
         )}
 

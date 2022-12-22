@@ -156,7 +156,6 @@ const MatxVerticalNav = ({ items }) => {
                 </StyledText>
 
                 <Box mx="auto" />
-
                 {item.badge && (
                   <BadgeValue className="sidenavHoverShow">{item.badge.value}</BadgeValue>
                 )}
