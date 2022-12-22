@@ -8,7 +8,8 @@ const BrandRoot = styled(Box)(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '20px 18px 20px 29px',
+    padding: '10px 18px 10px 18px',
+    backgroundColor: "#F6B333",
 }));
 
 const StyledSpan = styled(Span)(({mode}) => ({
@@ -27,15 +28,16 @@ const Brand = ({children}) => {
             <Box display="flex" alignItems="center">
                 <LogoHighscope/>
                 <StyledSpan mode={mode} className="sidenavHoverShow">
-                    <img src={logo} loading="lazy" width="120%" style={{
-                        marginLeft: '-25px'
+                    <img src={logo} loading="lazy" width="80%" style={{
+                        marginTop: '8px',
+                        marginLeft: '-10px'
                     }}/>
                 </StyledSpan>
             </Box>
 
-            <Box className="sidenavHoverShow" sx={{display: mode === 'compact' ? 'none' : 'block'}}>
-                {children || null}
-            </Box>
+            {/*<Box className="sidenavHoverShow" sx={{display: mode === 'compact' ? 'none' : 'block'}}>*/}
+            {/*    {children || null}*/}
+            {/*</Box>*/}
         </BrandRoot>
     );
 };

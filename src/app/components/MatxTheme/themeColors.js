@@ -64,17 +64,21 @@ export const themeColors = {
     palette: {
       type: 'dark',
       primary: {
-        main: '#001253',
+        main: '#222C64',
         contrastText: '#ffffff',
       },
       secondary: {
-        main: '#ff9e43',
+        main: '#04A6E1',
+        contrastText: textLight.primary,
+      },
+      otherColor: {
+        main: '#F5B335',
         contrastText: textLight.primary,
       },
       error: errorColor,
       background: {
-        paper: '#222A45',
-        default: '#1a2038',
+        paper: '#222C64',
+        default: '#222C64',
       },
       text: textDark,
     },

@@ -2,7 +2,7 @@ import { AppBar, Button, ThemeProvider, Toolbar } from '@mui/material';
 import { styled, useTheme } from '@mui/system';
 import useSettings from 'app/hooks/useSettings';
 import { topBarHeight } from 'app/utils/constant';
-import { Paragraph, Span } from './Typography';
+import { Paragraph } from './Typography';
 
 const AppFooter = styled(Toolbar)(() => ({
   display: 'flex',
@@ -32,22 +32,14 @@ const FooterContent = styled('div')(() => ({
 const Footer = () => {
   const theme = useTheme();
   const { settings } = useSettings();
-
   const footerTheme = settings.themes[settings.footer.theme] || theme;
-
   return (
     <ThemeProvider theme={footerTheme}>
       <AppBar color="primary" position="static" sx={{ zIndex: 96 }}>
         <AppFooter>
           <FooterContent>
-            {/*<a href="https://ui-lib.com/downloads/matx-pro-react-admin/">*/}
-            {/*  <Button variant="contained" color="secondary">*/}
-            {/*    Get MatX Pro*/}
-            {/*  </Button>*/}
-            {/*</a>*/}
-            {/*<Span sx={{ m: 'auto' }}></Span>*/}
             <Paragraph  sx={{ m: 'auto' }}>
-              Highscope Indonesia @2022
+              © 2022. HighScope Indonesia. All Rights Reserved
             </Paragraph>
           </FooterContent>
         </AppFooter>

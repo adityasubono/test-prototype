@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 import Mock from '../mock';
+import Foto1 from '../../app/assets/images/face-1.jpg';
+import Foto2 from '../../app/assets/images/face-2.jpg';
 
 const JWT_SECRET = 'jwt_secret_key';
 const JWT_VALIDITY = '7 days';
@@ -11,7 +13,7 @@ const userList = [
     name: 'Jason Alexander',
     username: 'jason_alexander',
     email: 'jason@highscope.co.id',
-    avatar: '../../assets/images/face-1.jpg',
+    avatar: Foto1,
     age: 25,
   },
   {
@@ -20,7 +22,7 @@ const userList = [
     name: 'Aditya Nugroho Subono',
     username: 'adityasubono',
     email: 'aditya@highscope.co.id',
-    avatar: '../../assets/images/face-2.jpg',
+    avatar: Foto2,
     age: 33,
   },
 ];

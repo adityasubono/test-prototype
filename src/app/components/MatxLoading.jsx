@@ -1,6 +1,6 @@
 import {CircularProgress, LinearProgress, Stack} from '@mui/material';
 import { Box, styled } from '@mui/system';
-import logoHighscope from '../assets/highscope.label-removebg-preview.png'
+import highscopeLogo from '../assets/highscope/HighScopeLogo.png'
 
 const StyledLoading = styled('div')(() => ({
   width: '100%',
@@ -24,7 +24,7 @@ const Loading = () => {
   return (
     <StyledLoading>
       <Box position="relative">
-        <img src={logoHighscope} alt="" />
+        <img src={highscopeLogo} alt="" />
         <CircularProgress className="circleProgress" />
       </Box>
     </StyledLoading>
