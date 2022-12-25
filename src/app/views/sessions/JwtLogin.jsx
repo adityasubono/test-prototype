@@ -1,5 +1,15 @@
 import {LoadingButton} from '@mui/lab';
-import {Card, Checkbox, Grid, IconButton, InputAdornment, TextField, Typography} from '@mui/material';
+import {
+    Card,
+    Checkbox,
+    Grid,
+    IconButton,
+    ImageList,
+    ImageListItem,
+    InputAdornment,
+    TextField,
+    Typography
+} from '@mui/material';
 import {Box, styled, useTheme} from '@mui/system';
 import useAuth from 'app/hooks/useAuth';
 import {Formik} from 'formik';
@@ -98,17 +108,12 @@ const JwtLogin = () => {
         <div>
           <TopbarRoot>
             <TopbarContainer>
-              <Box display="flex">
-                <img src={logoHighScope} alt='Logo Highscope' style={{
-                  width: '20%'
-                }}/>
-              </Box>
-
-              <Box display="flex" alignItems="right">
-                <img src={logoShields} alt='Logo Highscope' style={{
-                  width: '70%'
-                }}/>
-              </Box>
+                <Box display="flex">
+                    <img src={logoHighScope} alt='Logo Highscope' style={{ width: '30%'}}/>
+                </Box>
+                <Box display="flex" alignItems="right">
+                    <img src={logoShields} alt='Logo Shields' style={{width: '75%'}}/>
+                </Box>
             </TopbarContainer>
           </TopbarRoot>
             <img src={backgroundCity} style={{
@@ -121,30 +126,67 @@ const JwtLogin = () => {
                 opacity: 0.1
             }}/>
             <Grid container>
-                <Grid item sm={12} xs={12} xl={12}>
+                <Grid item xs={12} md={12} xl={12}>
                     <ContentBox>
                         <Box marginTop={'100px'}>
-                            <Typography variant="h4" fontWeight='bold' style={{
-                                color: '#222C64',
-                            }}>
+                            <Typography fontWeight='bold'
+                                        sx={{
+                                            color: '#222C64',
+                                            typography: {
+                                                xs: 'h5',
+                                                md: 'h4',
+                                                xl: 'h4'
+                                            }
+                                        }}>
                                 HighScope Indonesia
                             </Typography>
                         </Box>
 
 
                         <Box marginBottom="30px">
-                            <Typography variant='h6' gutterBottom fontWeight='lighter'>
+                            <Typography gutterBottom
+                                        sx={{
+                                            color: 'black',
+                                            typography: {
+                                                xs: {
+                                                    fontSize: '16px',
+                                                    fontWeight: 'lighter'
+                                                },
+                                                md: {
+                                                    fontSize: '25px',
+                                                    fontWeight: 'lighter'
+                                                },
+                                                xl: 'h5'
+                                            }
+                                        }}
+                            >
                                 Sekolah HighScope Indonesia Electronic Database System (SHIELDS)
                             </Typography>
                         </Box>
 
-                        <img src={backgroundSchool} style={{
-                            position: "absolute",
-                            top: '0',
-                            right: '0',
-                            width: '30%',
-                            height: 'auto'
-                        }}/>
+                        <Typography sx={{
+                            typography: {
+                                xs: {
+                                    display: 'none'
+                                },
+                                sm: {
+                                    display: 'none'
+                                },
+                                md: {
+                                    display: 'block'
+                                }
+                            }
+                        }}>
+                            <img src={backgroundSchool}
+                                 style={{
+                                     position: "absolute",
+                                     top: '0',
+                                     right: '0',
+                                     width: '30%',
+                                     height: 'auto',
+                                 }}/>
+                        </Typography>
+
 
                         <Formik
                             onSubmit={handleFormSubmit}
@@ -153,24 +195,32 @@ const JwtLogin = () => {
                         >
                             {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
                                 <form onSubmit={handleSubmit}>
-                                    <Box>
-                                        <TextField
-                                            size="small"
-                                            type="email"
-                                            name="email"
-                                            label="Email"
-                                            variant="outlined"
-                                            onBlur={handleBlur}
-                                            value={values.email}
-                                            onChange={handleChange}
-                                            helperText={touched.email && errors.email}
-                                            error={Boolean(errors.email && touched.email)}
-                                            sx={{ mb: 3, width: '24%'}}
-                                        />
-                                    </Box>
+                                    <Grid container>
+                                        <Grid item xs='12' sm='5' md='3'>
+                                            <Box>
+                                                <TextField
+                                                    fullWidth
+                                                    size="small"
+                                                    type="email"
+                                                    name="email"
+                                                    label="Email"
+                                                    variant="outlined"
+                                                    onBlur={handleBlur}
+                                                    value={values.email}
+                                                    onChange={handleChange}
+                                                    helperText={touched.email && errors.email}
+                                                    error={Boolean(errors.email && touched.email)}
+                                                    sx={{ mb: 3}}
+                                                />
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
 
-                                    <Box>
-                                        <TextField
+                                    <Grid container>
+                                        <Grid item xs='12' sm='5' md='3'>
+                                            <Box>
+                                                <TextField
+                                            fullWidth
                                             size="small"
                                             name="password"
                                             type={showPassword ? "text" : "password"}
@@ -190,25 +240,32 @@ const JwtLogin = () => {
                                             onChange={handleChange}
                                             helperText={touched.password && errors.password}
                                             error={Boolean(errors.password && touched.password)}
-                                            sx={{ mb: 1.5, width: '24%'}}
+                                            sx={{ mb: 1.5}}
                                         />
                                     </Box>
+                                        </Grid>
+                                    </Grid>
 
 
 
-                                    <LoadingButton
-                                        fullWidth
-                                        type="submit"
-                                        color="success"
-                                        loading={loading}
-                                        variant="contained"
-                                        sx={{ my: 2, width: '24%'}}
-                                        style={{
-                                            backgroundColor: "#222C64"
-                                        }}
-                                    >
-                                        LOGIN
-                                    </LoadingButton>
+                                    <Grid container>
+                                        <Grid xs='12' sm='5' md='3'>
+                                            <LoadingButton
+                                                fullWidth
+                                                type="submit"
+                                                color="success"
+                                                loading={loading}
+                                                variant="contained"
+                                                sx={{ my: 2}}
+                                                style={{
+                                                    backgroundColor: "#222C64"
+                                                }}
+                                            >
+                                                LOGIN
+                                            </LoadingButton>
+                                        </Grid>
+                                    </Grid>
+
 
                                     <FlexBox justifyContent="space-between">
                                         <NavLink
