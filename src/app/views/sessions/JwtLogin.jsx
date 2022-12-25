@@ -1,18 +1,21 @@
 import {LoadingButton} from '@mui/lab';
-import {Card, Checkbox, Grid, TextField, Typography} from '@mui/material';
+import {Card, Checkbox, Grid, IconButton, InputAdornment, TextField, Typography} from '@mui/material';
 import {Box, styled, useTheme} from '@mui/system';
-import {Paragraph} from 'app/components/Typography';
 import useAuth from 'app/hooks/useAuth';
 import {Formik} from 'formik';
 import {useState} from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
-import imageLogin from '../../assets/images/illustrations/posting_photo.svg'
 import logoShields from '../../assets/highscope/logo-shields.png'
 import logoHighScope from '../../assets/highscope/HighScopeLogo.png'
-import logoDevice from '../../assets/images/illustrations/posting_photo.svg'
+import backgroundSchool from '../../assets/highscope/Background-2.png'
+import backgroundCity from '../../assets/highscope/background-city.png'
 import * as Yup from 'yup';
 import {themeShadows} from "../../components/MatxTheme/themeColors";
-import {topBarNavbarHeight, topBarNavbarLogin} from "../../utils/constant";
+import {topBarNavbarLogin} from "../../utils/constant";
+import {Visibility, VisibilityOff} from "@mui/icons-material";
+import * as url from "url";
+
+
 
 const FlexBox = styled(Box)(() => ({display: 'flex', alignItems: 'center'}));
 
@@ -23,17 +26,6 @@ const ContentBox = styled(Box)(() => ({
     padding: '32px',
     position: 'relative',
     background: 'rgba(0, 0, 0, 0.01)',
-}));
-
-const JWTRoot = styled(JustifyBox)(() => ({
-    background: '#FFFFFF',
-    minHeight: '100% !important',
-    '& .card': {
-        margin: '1rem',
-        display: 'flex',
-        borderRadius: 12,
-        alignItems: 'center',
-    },
 }));
 
 // inital login credentials
@@ -55,6 +47,12 @@ const JwtLogin = () => {
     const theme = useTheme();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
 
     const {login} = useAuth();
 
@@ -113,116 +111,124 @@ const JwtLogin = () => {
               </Box>
             </TopbarContainer>
           </TopbarRoot>
-          <JWTRoot>
-            <Card className="card">
-              <Grid container>
-                <Grid item sm={6} xs={12} xl={6}>
-                  <JustifyBox p={4} height="100%" sx={{ minWidth: 320 }}>
-                    <h2 style={{
-                      color: '#222C64'
-                    }}>HighScope Indonesia</h2>
-
-                    <Typography style={{
-                      marginBottom: '19px'
-                    }}>
-                      <p>Sekolah HighScope Indonesia Electronic Database System (SHIELDS)</p>
-                    </Typography>
-                  </JustifyBox>
-                </Grid>
-
-                <Grid item sm={6} xs={12} xl={6}>
-                  <ContentBox>
-                    <Formik
-                        onSubmit={handleFormSubmit}
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                    >
-                      {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
-                          <form onSubmit={handleSubmit}>
-                            <Typography variant="h5" style={{
-                              marginBottom: '19px'
+            <img src={backgroundCity} style={{
+                position: "absolute",
+                top: '20px',
+                backgroundImage: `url(${backgroundCity})`,
+                backgroundRepeat: 'no-repeat',
+                width: '100%',
+                height: '100%',
+                opacity: 0.1
+            }}/>
+            <Grid container>
+                <Grid item sm={12} xs={12} xl={12}>
+                    <ContentBox>
+                        <Box marginTop={'100px'}>
+                            <Typography variant="h4" fontWeight='bold' style={{
+                                color: '#222C64',
                             }}>
-                              <img src={logoHighScope} width="100%" alt="" />
-                              Login
+                                HighScope Indonesia
                             </Typography>
-                            <TextField
-                                fullWidth
-                                size="small"
-                                type="email"
-                                name="email"
-                                label="Email"
-                                variant="outlined"
-                                onBlur={handleBlur}
-                                value={values.email}
-                                onChange={handleChange}
-                                helperText={touched.email && errors.email}
-                                error={Boolean(errors.email && touched.email)}
-                                sx={{ mb: 3 }}
-                            />
+                        </Box>
 
-                            <TextField
-                                fullWidth
-                                size="small"
-                                name="password"
-                                type="password"
-                                label="Password"
-                                variant="outlined"
-                                onBlur={handleBlur}
-                                value={values.password}
-                                onChange={handleChange}
-                                helperText={touched.password && errors.password}
-                                error={Boolean(errors.password && touched.password)}
-                                sx={{ mb: 1.5 }}
-                            />
 
-                            <FlexBox justifyContent="space-between">
-                              <FlexBox gap={1}>
-                                <Checkbox
-                                    size="small"
-                                    name="remember"
-                                    onChange={handleChange}
-                                    checked={values.remember}
-                                    sx={{ padding: 0 }}
-                                />
+                        <Box marginBottom="30px">
+                            <Typography variant='h6' gutterBottom fontWeight='lighter'>
+                                Sekolah HighScope Indonesia Electronic Database System (SHIELDS)
+                            </Typography>
+                        </Box>
 
-                                <Paragraph>Remember Me</Paragraph>
-                              </FlexBox>
+                        <img src={backgroundSchool} style={{
+                            position: "absolute",
+                            top: '0',
+                            right: '0',
+                            width: '30%',
+                            height: 'auto'
+                        }}/>
 
-                              <NavLink
-                                  to="/session/forgot-password"
-                                  style={{ color: theme.palette.primary.main }}
-                              >
-                                Forgot password?
-                              </NavLink>
-                            </FlexBox>
+                        <Formik
+                            onSubmit={handleFormSubmit}
+                            initialValues={initialValues}
+                            validationSchema={validationSchema}
+                        >
+                            {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
+                                <form onSubmit={handleSubmit}>
+                                    <Box>
+                                        <TextField
+                                            size="small"
+                                            type="email"
+                                            name="email"
+                                            label="Email"
+                                            variant="outlined"
+                                            onBlur={handleBlur}
+                                            value={values.email}
+                                            onChange={handleChange}
+                                            helperText={touched.email && errors.email}
+                                            error={Boolean(errors.email && touched.email)}
+                                            sx={{ mb: 3, width: '24%'}}
+                                        />
+                                    </Box>
 
-                            <LoadingButton
-                                type="submit"
-                                color="primary"
-                                loading={loading}
-                                variant="contained"
-                                sx={{ my: 2 }}
-                            >
-                              Login
-                            </LoadingButton>
+                                    <Box>
+                                        <TextField
+                                            size="small"
+                                            name="password"
+                                            type={showPassword ? "text" : "password"}
+                                            label="Password"
+                                            variant="outlined"
+                                            InputProps={{
+                                                endAdornment: <InputAdornment position="end">
+                                                    <IconButton
+                                                        onClick={handleClickShowPassword}
+                                                        onMouseDown={handleMouseDownPassword}>
+                                                        {showPassword ? <VisibilityOff/> : <Visibility/>}
+                                                    </IconButton>
+                                                </InputAdornment>,
+                                            }}
+                                            onBlur={handleBlur}
+                                            value={values.password}
+                                            onChange={handleChange}
+                                            helperText={touched.password && errors.password}
+                                            error={Boolean(errors.password && touched.password)}
+                                            sx={{ mb: 1.5, width: '24%'}}
+                                        />
+                                    </Box>
 
-                            <Paragraph>
-                              Don't have an account?
-                              <NavLink
-                                  to="/session/signup"
-                                  style={{ color: theme.palette.primary.main, marginLeft: 5 }}
-                              >
-                                Register
-                              </NavLink>
-                            </Paragraph>
-                          </form>
-                      )}
-                    </Formik>
-                  </ContentBox>
+
+
+                                    <LoadingButton
+                                        fullWidth
+                                        type="submit"
+                                        color="success"
+                                        loading={loading}
+                                        variant="contained"
+                                        sx={{ my: 2, width: '24%'}}
+                                        style={{
+                                            backgroundColor: "#222C64"
+                                        }}
+                                    >
+                                        LOGIN
+                                    </LoadingButton>
+
+                                    <FlexBox justifyContent="space-between">
+                                        <NavLink
+                                            to="/session/forgot-password"
+                                        >
+                                            <Typography variant={"body1"} sx={{
+                                                fontWeight: 'bold',
+                                                color: "#222C64"
+                                            }}>
+                                                Forgot password ?
+                                            </Typography>
+
+                                        </NavLink>
+                                    </FlexBox>
+                                </form>
+                            )}
+                        </Formik>
+                    </ContentBox>
                 </Grid>
-              </Grid>
-            </Card>
-          </JWTRoot>
+            </Grid>
         </div>
 
     );

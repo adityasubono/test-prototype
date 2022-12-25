@@ -21,6 +21,16 @@ export const navigations = [
   },
 
   {
+    name: 'Curriculum',
+    icon: 'assignment',
+    children: [
+      { name: 'Menu 1', iconText: 'M 1', path: '/admission/menu1' },
+      { name: 'Menu 2', iconText: 'M 2', path: '/admission/menu2' },
+      { name: 'Menu 3', iconText: 'M 3', path: '/admission/menu3' }
+    ],
+  },
+
+  {
     name: 'E-Library',
     icon: 'book',
     children: [
